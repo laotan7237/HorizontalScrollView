@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.laotan.horizontalscrollview.MainActivity">
+
+    <ScrollView
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.laotan.horizontalscrollview.HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp">
+
+                <ImageView
+                    android:id="@+id/iv_a"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/a" />
+
+                <ImageView
+                    android:id="@+id/iv_b"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/b" />
+
+                <ImageView
+                    android:id="@+id/iv_c"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/c" />
+
+                <ImageView
+                    android:id="@+id/iv_d"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/d" />
+
+                <ImageView
+                    android:id="@+id/iv_e"
+
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/e" />
+
+                <ImageView
+                    android:id="@+id/iv_f"
+
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/f" />
+
+                <ImageView
+                    android:id="@+id/iv_g"
+
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/g" />
+
+
+                <ImageView
+                    android:id="@+id/iv_h"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/h" />
+
+                <ImageView
+                    android:id="@+id/iv_i"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/i" />
+
+            </com.laotan.horizontalscrollview.HorizontalScrollView>
+
+            <com.laotan.horizontalscrollview.HorizontalScrollHighDownView
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_marginTop="-150dp"
+                android:background="#0000" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
