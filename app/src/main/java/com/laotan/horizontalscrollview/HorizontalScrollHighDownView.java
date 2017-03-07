@@ -39,7 +39,7 @@ public class HorizontalScrollHighDownView extends View {
         Paint mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.GREEN);
        canvas.drawCircle(windowWidth/2,1050,1000,mPaint);
     }
 }

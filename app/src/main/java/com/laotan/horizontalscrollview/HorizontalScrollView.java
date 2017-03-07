@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import java.net.UnknownHostException;
-
 /**
  * Created by laotan on 2017/3/6.
  */
@@ -45,7 +43,7 @@ public class HorizontalScrollView extends ViewGroup {
     private int scllorTime;
     private int dispatchEndX;
     private int dispatchEndY;
-    private int childMarginLeft = 10;
+    private int childMarginRight = 10;
 
     public HorizontalScrollView(Context context) {
         this(context, null);
@@ -121,10 +119,11 @@ public class HorizontalScrollView extends ViewGroup {
         rightHigh = childViewHeightDifference * (-childHalfCount);//初始化右边for循环的最左边View的高度位置，需要加上i * childViewHeightDifference
         touchChildCenterCount = childHalfCount;
         for (int i = childHalfCount; i >= 0; i--) {
+            childMarginRight = 10;
             final View childView = getChildAt(i);
             if (childView.getVisibility() != GONE) {
                 final int childWidth = oneThirdWindowWidth;
-                childView.layout(childLeftLeft - childWidth / 2, childViewHeightDifference * (childHalfCount - i), childLeftLeft - childWidth / 2 + childWidth - childMarginLeft,
+                childView.layout(childLeftLeft - childWidth / 2, childViewHeightDifference * (childHalfCount - i), childLeftLeft - childWidth / 2 + childWidth - childMarginRight,
                         childViewHeightDifference * (childHalfCount - i) + childView.getMeasuredHeight());
 
                 childLeftLeft -= childWidth;
@@ -132,14 +131,15 @@ public class HorizontalScrollView extends ViewGroup {
         }
 
         for (int i = childHalfCount + 1; i < childCount; i++) {
+            childMarginRight = 10;
             final View childView = getChildAt(i);
             if (childView.getVisibility() != GONE) {
                 final int childWidth = oneThirdWindowWidth;
                 if (i == childCount - 1) {
-                    childMarginLeft = 0;
+                    childMarginRight = 0;
                 }
                 childView.layout(childRightLeft + childWidth / 2, childViewHeightDifference * (i - childHalfCount),
-                        childRightLeft + childWidth / 2 + childWidth - childMarginLeft, childViewHeightDifference * (i - childHalfCount) + childView.getMeasuredHeight());
+                        childRightLeft + childWidth / 2 + childWidth - childMarginRight, childViewHeightDifference * (i - childHalfCount) + childView.getMeasuredHeight());
                 childRightLeft += childWidth;
             }
         }
@@ -216,24 +216,25 @@ public class HorizontalScrollView extends ViewGroup {
         }
 
         for (int i = touchChildCenterCount; i >= 0; i--) {
+            childMarginRight = 10;
             final View childView = getChildAt(i);
             if (childView.getVisibility() != GONE) {
                 if (totalX > 0) {
                     if (i == touchChildCenterCount) {
                         final int childWidth = childView.getMeasuredWidth();
                         childView.layout(childLeftLeft - childWidth / 2, rightHigh + i * childViewHeightDifference,
-                                childLeftLeft + childWidth / 2 - childMarginLeft, rightHigh + i * childViewHeightDifference + childView.getMeasuredHeight());
+                                childLeftLeft + childWidth / 2 - childMarginRight, rightHigh + i * childViewHeightDifference + childView.getMeasuredHeight());
                     } else {
                         final int childWidth = childView.getMeasuredWidth();
                         childView.layout(childLeftLeft - 3 * childWidth / 2, leftHigh - i * childViewHeightDifference,
-                                childLeftLeft - childWidth / 2 - childMarginLeft, leftHigh - i * childViewHeightDifference + childView.getMeasuredHeight());
+                                childLeftLeft - childWidth / 2 - childMarginRight, leftHigh - i * childViewHeightDifference + childView.getMeasuredHeight());
                         childLeftLeft -= childWidth;
 
                     }
                 } else {
                     final int childWidth = childView.getMeasuredWidth();
                     childView.layout(childLeftLeft - childWidth / 2, leftHigh - i * childViewHeightDifference,
-                            childLeftLeft + childWidth / 2 - childMarginLeft, leftHigh - i * childViewHeightDifference + childView.getMeasuredHeight());
+                            childLeftLeft + childWidth / 2 - childMarginRight, leftHigh - i * childViewHeightDifference + childView.getMeasuredHeight());
                     childLeftLeft -= childWidth;
                 }
 
@@ -245,11 +246,12 @@ public class HorizontalScrollView extends ViewGroup {
             final View childView = getChildAt(i);
             if (childView.getVisibility() != GONE) {
                 final int childWidth = childView.getMeasuredWidth();
+                childMarginRight = 10;
                 if (i == childCount - 1) {
-                    childMarginLeft = 0;
+                    childMarginRight = 0;
                 }
                 childView.layout(childRightLeft + childWidth / 2, rightHigh + i * childViewHeightDifference,
-                        childRightLeft + childWidth / 2 + childWidth - childMarginLeft, rightHigh + i * childViewHeightDifference + childView.getMeasuredHeight());
+                        childRightLeft + childWidth / 2 + childWidth - childMarginRight, rightHigh + i * childViewHeightDifference + childView.getMeasuredHeight());
                 childRightLeft += childWidth;
             }
         }
